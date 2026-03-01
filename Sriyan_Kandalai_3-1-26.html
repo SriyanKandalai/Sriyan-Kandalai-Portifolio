@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sriyan Kandalai | Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --steel-blue: #407cb0; 
+      --sky-blue: #86abd1;
+      --mist: #dee6ef;
+      --rust: #8d5d4c; 
+      --ink: #0f1c2d;
+      --muted: #5a6b7d;
+      --glass: rgba(222, 230, 239, 0.4); 
+      --glass-border: rgba(255, 255, 255, 0.6);
+      --radius: 24px;
+      --max: 1000px;
+      --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    /* Base Reset */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    
+    body {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      color: var(--ink);
+      background-color: #f4f7f9;
+      background-image: 
+        radial-gradient(circle at 0% 0%, rgba(64, 124, 176, 0.15) 0%, transparent 45%),
+        radial-gradient(circle at 100% 0%, rgba(141, 93, 76, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(134, 171, 209, 0.15) 0%, transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(64, 124, 176, 0.1) 0%, transparent 45%);
+      background-attachment: fixed;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(222, 230, 239, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .nav { max-width: var(--max); margin: 0 auto; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: Sora, sans-serif; font-weight: 700; color: var(--steel-blue); letter-spacing: -0.5px; }
+
+    .container { max-width: var(--max); margin: 0 auto; padding: 60px 20px; }
+
+    /* Hero Section */
+    .hero { margin-bottom: 100px; display: grid; grid-template-columns: 280px 1fr; gap: 60px; align-items: center; }
+    .portrait { border-radius: var(--radius); overflow: hidden; border: 6px solid #fff; box-shadow: 0 30px 60px rgba(64, 124, 176, 0.15); }
+    .portrait img { width: 100%; height: auto; display: block; }
+    
+    h1 { 
+      font-family: Sora, sans-serif; font-size: 3.5rem; letter-spacing: -2px; line-height: 1.1; margin-bottom: 24px; 
+      background: linear-gradient(135deg, var(--steel-blue), var(--sky-blue));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    section { margin-bottom: 120px; }
+    h2 { font-family: Sora, sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 4px; color: var(--steel-blue); margin-bottom: 40px; }
+    
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    
+    /* Card Styles */
+    .glass-card {
+      background: var(--glass);
+      backdrop-filter: blur(12px) saturate(140%);
+      -webkit-backdrop-filter: blur(12px) saturate(140%);
+      border: 1px solid var(--glass-border);
+      padding: 35px;
+      border-radius: var(--radius);
+      transition: all 0.5s var(--ease);
+    }
+    .glass-card:hover { 
+      transform: translateY(-8px); 
+      background: rgba(255, 255, 255, 0.8);
+      border-color: var(--sky-blue);
+      box-shadow: 0 40px 80px -20px rgba(64, 124, 176, 0.1);
+    }
+
+    .badge { 
+      display: inline-block; padding: 6px 14px; border-radius: 50px;
+      font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; 
+      background: var(--mist); color: var(--steel-blue); margin-bottom: 20px; 
+    }
+
+    .seeking-card, .activity-card { border-left: 4px solid var(--steel-blue); }
+
+    /* Photography Section */
+    .photography-showcase { display: grid; grid-template-columns: 400px 1fr; gap: 60px; align-items: start; }
+    .main-piece { border-radius: var(--radius); overflow: hidden; border: 8px solid #fff; box-shadow: 0 40px 100px -30px rgba(0,0,0,0.25); cursor: zoom-in; }
+    .main-piece img { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; display: block; }
+
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 15px; margin-top: 40px; }
+    .thumb { aspect-ratio: 1; border-radius: 14px; overflow: hidden; border: 2px solid #fff; transition: 0.4s var(--ease); cursor: zoom-in; }
+    .thumb:hover { transform: scale(1.08) rotate(1deg); border-color: var(--steel-blue); }
+
+    /* Buttons */
+    .btn { 
+      display: inline-block; padding: 16px 36px; 
+      background: linear-gradient(135deg, #407cb0, #6a96bd); 
+      color: #fff !important; text-decoration: none; border-radius: 50px; 
+      font-weight: 700; font-size: 0.85rem; transition: 0.4s var(--ease); border: none; cursor: pointer; text-align: center;
+    }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(64, 124, 176, 0.3); filter: brightness(1.1); }
+
+    /* Animations */
+    .reveal { opacity: 0; transform: translateY(40px); transition: 1.2s var(--ease); }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    /* Lightbox Styles - Refined for "Bigger" Interaction */
+    #lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(15, 28, 45, 0.92); /* Deeper contrast */
+      backdrop-filter: blur(15px); /* Stronger blur for focus */
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s var(--ease);
+      padding: 20px;
+    }
+    #lightbox.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #lightbox img {
+      max-width: 95%;
+      max-height: 85vh;
+      width: auto;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 60px 120px rgba(0,0,0,0.6);
+      transform: scale(0.8) translateY(20px);
+      transition: transform 0.5s var(--ease);
+      border: 4px solid rgba(255,255,255,0.1);
+    }
+    #lightbox.active img {
+      transform: scale(1) translateY(0);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 30px; right: 30px;
+      color: #fff;
+      font-size: 2.5rem;
+      cursor: pointer;
+      font-family: Sora, sans-serif;
+      opacity: 0.6;
+      transition: 0.3s;
+      z-index: 2001;
+    }
+    .lightbox-close:hover { opacity: 1; transform: scale(1.1); }
+
+    @media (max-width: 850px) {
+      .hero, .photography-showcase { grid-template-columns: 1fr; text-align: center; }
+      .main-piece { max-width: 320px; margin: 0 auto; }
+      h1 { font-size: 2.8rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav"><div class="logo">SRIYAN KANDALAI</div></div>
+  </header>
+
+  <div class="container">
+    <section class="hero reveal">
+      <div class="portrait">
+        <img src="Screenshot 2026-02-22 131302.png" alt="Sriyan" class="zoomable">
+      </div>
+      <div>
+        <h1>Hi, I am Sriyan Kandalai</h1>
+        <p class="tagline">I am a curious neuroscience enthusiast and learning photographer, artist focused on curiosity, creativity, and building real‑world experience. I am currently looking to diversify my profile.</p>
+      </div>
+    </section>
+
+    <section id="seeking">
+      <h2>Seeking Opportunities</h2>
+      <div class="grid">
+        <div class="glass-card seeking-card reveal">
+          <span class="badge">Mentorship & Internship</span>
+          <h3 style="color: var(--steel-blue);">Photography</h3>
+          <p style="color:var(--muted); font-size:0.95rem; margin-top:10px;">Looking for a mentor or internship to master the basic fundamentals of photography and visual storytelling.</p>
+        </div>
+        <div class="glass-card seeking-card reveal">
+          <span class="badge">Research</span>
+          <h3 style="color: var(--steel-blue);">Medical Field</h3>
+          <p style="color:var(--muted); font-size:0.95rem; margin-top:10px;">Seeking opportunities in a medical setting to gain research experience and clinical exposure.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="activities">
+      <h2>Active Pursuits</h2>
+      <div class="grid">
+        <div class="glass-card activity-card reveal">
+          <span class="badge">Certification</span>
+          <h3 style="color: var(--steel-blue);">Microsoft Word Expert and Excel Certification</h3>
+          <p style="color:var(--muted); font-size:0.95rem; margin-top:10px;">Pursuing a Microsoft Word and Microsoft Excel certification to enhance professional technical skills.</p>
+        </div>
+        <div class="glass-card activity-card reveal">
+          <span class="badge">Creative Projects</span>
+          <h3 style="color: var(--steel-blue);">SPOA Student Photo Contest</h3>
+          <p style="color:var(--muted); font-size:0.95rem; margin-top:10px;">Preparing a portfolio of work for submission to the School Photographers Association of America (SPOA) contest.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="photography">
+      <h2>Photography</h2>
+      <div class="photography-showcase">
+        <div class="main-piece reveal">
+          <img src="Screenshot 2026-02-22 110939.png" alt="Main Work" class="zoomable">
+        </div>
+        <div class="reveal">
+          <span class="badge">Portfolio Highlight</span>
+          <h3 style="font-size: 2.8rem; color: var(--steel-blue); margin-bottom: 15px;">Featured Work</h3>
+          <p style="color: var(--muted); margin-bottom: 35px; font-size: 1.1rem;">Capturing moments through a lens that explores the intersection of art and observation.</p>
+          
+          <a href="https://instagram.com/sriyankandalai" target="_blank" class="btn">View Collections</a>
+          <div class="gallery-grid" id="galleryGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="text-align: center;">
+      <div class="glass-card reveal" style="max-width: 600px; margin: 0 auto; padding: 60px 40px;">
+        <span class="badge">Contact Me</span>
+        <h3 style="font-size: 1.8rem; margin-bottom: 30px;">Together, let's make more!</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+          <a href="mailto:sriyankandalai@gmail.com" class="btn">Send Email</a>
+          <a href="https://instagram.com/sriyankandalai" target="_blank" class="btn">My Instagram Handle</a>
+        </div>
+      </div>
+    </section>
+
+    <footer style="text-align: center; color: var(--sky-blue); font-size: 0.75rem; padding: 60px 0; font-weight: 700; letter-spacing: 2px;">
+     <span id="footer-text">Last updated by Sriyan Kandalai</span>
+    </footer>
+  </div>
+
+  <!-- Lightbox Element -->
+  <div id="lightbox">
+    <div class="lightbox-close">&times;</div>
+    <img src="" alt="Enlarged view">
+  </div>
+
+  <script>
+    // 1. Footer Update
+    const currentYear = new Date().getFullYear();
+    document.getElementById("footer-text").innerHTML = `&copy; ${currentYear} | Last updated by Sriyan Kandalai`;
+
+    // 2. Scroll Reveal Animations
+    const obs = new IntersectionObserver((entries) => { 
+      entries.forEach(entry => { 
+        if(entry.isIntersecting) entry.target.classList.add("in"); 
+      }); 
+    }, { threshold: 0.1 });
+    document.querySelectorAll(".reveal").forEach(el => obs.observe(el));
+
+    // 3. Gallery Items Initialization
+    const galleryItems = [
+      "sunlightfarm.png", "swirl.png", "smile.png", 
+      "against_the_gradient.png", "among_the_stars.png", "puzzled.png"
+    ];
+    
+    const grid = document.getElementById("galleryGrid");
+    grid.innerHTML = galleryItems.map(src => `
+      <div class="thumb">
+        <img src="${src}" alt="Gallery item" class="zoomable" style="width:100%; height:100%; object-fit:cover;">
+      </div>
+    `).join("");
+
+    // 4. Enhanced Lightbox Interaction
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    
+    // Open Logic
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('zoomable')) {
+        lightboxImg.src = e.target.src;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Stop background scrolling
+      }
+    });
+
+    // Close Logic (Click background/side or close button)
+    lightbox.addEventListener('click', (e) => {
+      // Logic: If user clicks the side (the lightbox div) or the close button
+      // We also close on image click for a seamless experience
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'auto'; // Restore scrolling
+    });
+
+  </script>
+</body>
+</html>
