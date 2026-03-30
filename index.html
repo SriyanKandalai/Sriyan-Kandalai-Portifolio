@@ -11,13 +11,13 @@
 
   <style>
     :root {
-      --steel-blue: #407cb0; 
+      --steel-blue: #407cb0;
       --sky-blue: #86abd1;
       --mist: #dee6ef;
-      --rust: #8d5d4c; 
+      --rust: #8d5d4c;
       --ink: #0f1c2d;
       --muted: #5a6b7d;
-      --glass: rgba(222, 230, 239, 0.4); 
+      --glass: rgba(222, 230, 239, 0.4);
       --glass-border: rgba(255, 255, 255, 0.6);
       --radius: 24px;
       --max: 1000px;
@@ -26,12 +26,12 @@
 
     /* Base Reset */
     * { margin:0; padding:0; box-sizing:border-box; }
-    
+
     body {
       font-family: "Plus Jakarta Sans", sans-serif;
       color: var(--ink);
       background-color: #f4f7f9;
-      background-image: 
+      background-image:
         radial-gradient(circle at 0% 0%, rgba(64, 124, 176, 0.15) 0%, transparent 45%),
         radial-gradient(circle at 100% 0%, rgba(141, 93, 76, 0.08) 0%, transparent 40%),
         radial-gradient(circle at 50% 50%, rgba(134, 171, 209, 0.15) 0%, transparent 60%),
@@ -49,18 +49,47 @@
       border-bottom: 1px solid var(--glass-border);
     }
 
-    .nav { max-width: var(--max); margin: 0 auto; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-family: Sora, sans-serif; font-weight: 700; color: var(--steel-blue); letter-spacing: -0.5px; }
+    .nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: Sora, sans-serif;
+      font-weight: 700;
+      color: var(--steel-blue);
+      letter-spacing: -0.5px;
+    }
 
     .container { max-width: var(--max); margin: 0 auto; padding: 60px 20px; }
 
     /* Hero Section */
-    .hero { margin-bottom: 100px; display: grid; grid-template-columns: 280px 1fr; gap: 60px; align-items: center; }
-    .portrait { border-radius: var(--radius); overflow: hidden; border: 6px solid #fff; box-shadow: 0 30px 60px rgba(64, 124, 176, 0.15); }
+    .hero {
+      margin-bottom: 100px;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .portrait {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 6px solid #fff;
+      box-shadow: 0 30px 60px rgba(64, 124, 176, 0.15);
+    }
     .portrait img { width: 100%; height: auto; display: block; }
-    
-    h1 { 
-      font-family: Sora, sans-serif; font-size: 3.5rem; letter-spacing: -2px; line-height: 1.1; margin-bottom: 24px; 
+
+    h1 {
+      font-family: Sora, sans-serif;
+      font-size: 3.5rem;
+      letter-spacing: -2px;
+      line-height: 1.1;
+      margin-bottom: 24px;
       background: linear-gradient(135deg, var(--steel-blue), var(--sky-blue));
       background-clip: text;
       -webkit-background-clip: text;
@@ -68,10 +97,20 @@
     }
 
     section { margin-bottom: 120px; }
-    h2 { font-family: Sora, sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 4px; color: var(--steel-blue); margin-bottom: 40px; }
-    
+
+    h2 {
+      font-family: Sora, sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: var(--steel-blue);
+      margin-bottom: 40px;
+    }
+
+    .tagline { color: var(--muted); font-size: 1.05rem; max-width: 56ch; }
+
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
-    
+
     /* Card Styles */
     .glass-card {
       background: var(--glass);
@@ -82,50 +121,97 @@
       border-radius: var(--radius);
       transition: all 0.5s var(--ease);
     }
-    .glass-card:hover { 
-      transform: translateY(-8px); 
+
+    .glass-card:hover {
+      transform: translateY(-8px);
       background: rgba(255, 255, 255, 0.8);
       border-color: var(--sky-blue);
       box-shadow: 0 40px 80px -20px rgba(64, 124, 176, 0.1);
     }
 
-    .badge { 
-      display: inline-block; padding: 6px 14px; border-radius: 50px;
-      font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; 
-      background: var(--mist); color: var(--steel-blue); margin-bottom: 20px; 
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      background: var(--mist);
+      color: var(--steel-blue);
+      margin-bottom: 20px;
     }
 
     .seeking-card, .activity-card { border-left: 4px solid var(--steel-blue); }
 
     /* Photography Section */
-    .photography-showcase { display: grid; grid-template-columns: 400px 1fr; gap: 60px; align-items: start; }
-    .main-piece { border-radius: var(--radius); overflow: hidden; border: 8px solid #fff; box-shadow: 0 40px 100px -30px rgba(0,0,0,0.25); cursor: zoom-in; }
+    .photography-showcase {
+      display: grid;
+      grid-template-columns: 400px 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .main-piece {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 8px solid #fff;
+      box-shadow: 0 40px 100px -30px rgba(0,0,0,0.25);
+      cursor: zoom-in;
+    }
     .main-piece img { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; display: block; }
 
     .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 15px; margin-top: 40px; }
-    .thumb { aspect-ratio: 1; border-radius: 14px; overflow: hidden; border: 2px solid #fff; transition: 0.4s var(--ease); cursor: zoom-in; }
+    .thumb {
+      aspect-ratio: 1;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 2px solid #fff;
+      transition: 0.4s var(--ease);
+      cursor: zoom-in;
+      background: rgba(255,255,255,0.35);
+    }
     .thumb:hover { transform: scale(1.08) rotate(1deg); border-color: var(--steel-blue); }
 
     /* Buttons */
-    .btn { 
-      display: inline-block; padding: 16px 36px; 
-      background: linear-gradient(135deg, #407cb0, #6a96bd); 
-      color: #fff !important; text-decoration: none; border-radius: 50px; 
-      font-weight: 700; font-size: 0.85rem; transition: 0.4s var(--ease); border: none; cursor: pointer; text-align: center;
+    .btn {
+      display: inline-block;
+      padding: 16px 36px;
+      background: linear-gradient(135deg, #407cb0, #6a96bd);
+      color: #fff !important;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      transition: 0.4s var(--ease);
+      border: none;
+      cursor: pointer;
+      text-align: center;
     }
     .btn:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(64, 124, 176, 0.3); filter: brightness(1.1); }
+
+    .btn.secondary {
+      background: rgba(255,255,255,0.65);
+      color: var(--steel-blue) !important;
+      border: 1px solid rgba(64,124,176,0.25);
+      backdrop-filter: blur(10px);
+    }
+    .btn.secondary:hover {
+      box-shadow: 0 20px 40px rgba(64, 124, 176, 0.15);
+      filter: none;
+    }
 
     /* Animations */
     .reveal { opacity: 0; transform: translateY(40px); transition: 1.2s var(--ease); }
     .reveal.in { opacity: 1; transform: translateY(0); }
 
-    /* Lightbox Styles - Refined for "Bigger" Interaction */
+    /* Lightbox Styles */
     #lightbox {
       position: fixed;
       top: 0; left: 0;
       width: 100vw; height: 100vh;
-      background: rgba(15, 28, 45, 0.92); /* Deeper contrast */
-      backdrop-filter: blur(15px); /* Stronger blur for focus */
+      background: rgba(15, 28, 45, 0.92);
+      backdrop-filter: blur(15px);
       z-index: 2000;
       display: flex;
       align-items: center;
@@ -150,9 +236,8 @@
       transition: transform 0.5s var(--ease);
       border: 4px solid rgba(255,255,255,0.1);
     }
-    #lightbox.active img {
-      transform: scale(1) translateY(0);
-    }
+    #lightbox.active img { transform: scale(1) translateY(0); }
+
     .lightbox-close {
       position: absolute;
       top: 30px; right: 30px;
@@ -163,156 +248,236 @@
       opacity: 0.6;
       transition: 0.3s;
       z-index: 2001;
+      user-select: none;
     }
     .lightbox-close:hover { opacity: 1; transform: scale(1.1); }
+
+    /* PDF embed */
+    .pdf-frame {
+      width: 100%;
+      height: 520px;
+      border: none;
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.5);
+    }
 
     @media (max-width: 850px) {
       .hero, .photography-showcase { grid-template-columns: 1fr; text-align: center; }
       .main-piece { max-width: 320px; margin: 0 auto; }
       h1 { font-size: 2.8rem; }
+      .tagline { margin: 0 auto; }
     }
   </style>
 </head>
 
 <body>
   <header>
-    <div class="nav"><div class="logo">SRIYAN KANDALAI</div></div>
+    <div class="nav">
+      <div class="logo">SRIYAN KANDALAI</div>
+    </div>
   </header>
 
   <div class="container">
+    <!-- HERO -->
     <section class="hero reveal">
       <div class="portrait">
         <img src="Screenshot 2026-02-22 131302.png" alt="Sriyan" class="zoomable">
       </div>
       <div>
         <h1>Hi, I am Sriyan Kandalai</h1>
-        <p class="tagline">I am a curious neuroscience enthusiast and learning photographer, artist focused on curiosity, creativity, and building real‑world experience. I am currently looking to diversify my profile.</p>
+        <p class="tagline">
+          I am a curious neuroscience enthusiast and a learning photographer and artist focused on curiosity,
+          creativity, and building real‑world experience. I am currently looking to diversify my profile.
+        </p>
       </div>
     </section>
 
+    <!-- SEEKING -->
     <section id="seeking">
       <h2>Seeking Opportunities</h2>
       <div class="grid">
         <div class="glass-card seeking-card reveal">
-          <span class="badge">Mentorship & Internship</span>
+          <span class="badge">Mentorship &amp; Internship</span>
           <h3 style="color: var(--steel-blue);">Photography</h3>
-          <p style="color:var(--muted); font-size:0.95rem; margin-top:10px;">Looking for a mentor or internship to master the basic fundamentals of photography and visual storytelling.</p>
+          <p style="color:var(--muted); font-size:0.95rem; margin-top:10px;">
+            Looking for a mentor or internship to master the fundamentals of photography and visual storytelling.
+          </p>
         </div>
+
         <div class="glass-card seeking-card reveal">
           <span class="badge">Research</span>
           <h3 style="color: var(--steel-blue);">Medical Field</h3>
-          <p style="color:var(--muted); font-size:0.95rem; margin-top:10px;">Seeking opportunities in a medical setting to gain research experience and clinical exposure.</p>
+          <p style="color:var(--muted); font-size:0.95rem; margin-top:10px;">
+            Seeking opportunities in a medical setting to gain research experience and clinical exposure.
+          </p>
         </div>
       </div>
     </section>
 
+    <!-- ACTIVE PURSUITS -->
     <section id="activities">
       <h2>Active Pursuits</h2>
       <div class="grid">
         <div class="glass-card activity-card reveal">
           <span class="badge">Certification</span>
           <h3 style="color: var(--steel-blue);">Microsoft Excel Certification</h3>
-          <p style="color:var(--muted); font-size:0.95rem; margin-top:10px;">Pursuing a Microsoft Excel certification to enhance professional technical skills.</p>
+          <p style="color:var(--muted); font-size:0.95rem; margin-top:10px;">
+            Pursuing a Microsoft Excel certification to enhance professional technical skills.
+          </p>
         </div>
+
         <div class="glass-card activity-card reveal">
           <span class="badge">Creative Projects</span>
           <h3 style="color: var(--steel-blue);">SPOA Student Contest</h3>
-          <p style="color:var(--muted); font-size:0.95rem; margin-top:10px;"> Preparing to submit a photo for submission to the School Photographers Association of America (SPOA) contest.</p>
+          <p style="color:var(--muted); font-size:0.95rem; margin-top:10px;">
+            Preparing to submit a photo to the School Photographers Association of America (SPOA) contest.
+          </p>
         </div>
       </div>
-
     </section>
-        <section id="cerfifications">
-      <h2>Certificationss</h2>
+
+    <!-- CERTIFICATIONS (fixed spelling) -->
+    <section id="certifications">
+      <h2>Certifications</h2>
       <div class="grid">
         <div class="glass-card activity-card reveal">
           <span class="badge">Certified</span>
-          <h3 style="color: var(--steel-blue);">Microsoft Word Expert Certified</h3>
-          <p style="color:var(--muted); font-size:0.95rem; margin-top:10px;">Pursued a Microsoft Word Expert certification to enhance professional technical skills, compeleted on 3/12/26.</p>
+          <h3 style="color: var(--steel-blue);">Microsoft Word Expert (Office 2019)</h3>
+          <p style="color:var(--muted); font-size:0.95rem; margin-top:10px;">
+            Exam Score Report — Score: 880/1000 (Completed March 12, 2026)
+          </p>
         </div>
+
         <div class="glass-card activity-card reveal">
-          <span class="badge">STOP THE BLEED</span>
+          <span class="badge">Stop the Bleed</span>
           <h3 style="color: var(--steel-blue);">STOP THE BLEED</h3>
-          <p style="color:var(--muted); font-size:0.95rem; margin-top:10px;">The Stop the Bleed Program certification hosted by the American College of Surgeons teaches people how to control severe bleeding during emergencies using techniques like applying pressure, packing wounds, and using a tourniquet.</p>
+          <p style="color:var(--muted); font-size:0.95rem; margin-top:10px;">
+            The Stop the Bleed certification hosted by the American College of Surgeons teaches people how to control
+            severe bleeding during emergencies using techniques like applying pressure, packing wounds, and using a tourniquet.
+          </p>
         </div>
       </div>
-
     </section>
-        <section id="achivements">
-      <h2>Achivements</h2>
+
+    <!-- WORD EXPERT CERTIFICATE ATTACHMENT -->
+    <section id="word-expert-certificate">
+      <h2>Word Expert Certificate (PDF)</h2>
+
+      <div class="glass-card activity-card reveal">
+        <span class="badge">Certificate</span>
+        <h3 style="color: var(--steel-blue);">Microsoft Word Expert (Office 2019)</h3>
+        <p style="color:var(--muted); font-size:0.95rem; margin-top:10px;">
+          Attached exam score report PDF — Score: 880/1000, dated March 12, 2026.
+        </p>
+
+        <div style="margin-top: 22px; display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="btn" href="word-expert-score-report.pdf" target="_blank" rel="noopener">
+            View PDF
+          </a>
+          <a class="btn secondary" href="word-expert-score-report.pdf" download>
+            Download PDF
+          </a>
+        </div>
+
+        <div style="margin-top: 28px;">
+          <object class="pdf-frame" data="word-expert-score-report.pdf" type="application/pdf">
+            <p style="color:var(--muted);">
+              Your browser can’t display PDFs inline.
+              <a href="word-expert-score-report.pdf" target="_blank" rel="noopener">Open the PDF</a>.
+            </p>
+          </object>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS (fixed spelling) -->
+    <section id="achievements">
+      <h2>Achievements</h2>
       <div class="grid">
         <div class="glass-card activity-card reveal">
-          <span class="badge">Finialist</span>
+          <span class="badge">Finalist</span>
           <h3 style="color: var(--steel-blue);">PNC Finalist LMiG 3</h3>
-          <p style="color:var(--muted); font-size:0.95rem; margin-top:10px;">National finalist for the Prajna National Competition. I was selected after many rounds of interviews of people from all over the nation.</p>
+          <p style="color:var(--muted); font-size:0.95rem; margin-top:10px;">
+            National finalist for the Prajna National Competition. I was selected after many rounds of interviews with people from all over the nation.
+          </p>
         </div>
+
         <div class="glass-card activity-card reveal">
-          <span class="badge">Honorable Mentions</span>
-          <h3 style="color: var(--steel-blue);">Scholastic Arts & Writing Contest</h3>
-          <p style="color:var(--muted); font-size:0.95rem; margin-top:10px;">I was a Honorable Mention in this contest for my photo "Eclosion". I was selected from many of the thousands that had particpated. </p>
+          <span class="badge">Honorable Mention</span>
+          <h3 style="color: var(--steel-blue);">Scholastic Arts &amp; Writing Contest</h3>
+          <p style="color:var(--muted); font-size:0.95rem; margin-top:10px;">
+            I received an Honorable Mention in this contest for my photo "Eclosion". I was selected from many of the thousands who had participated.
+          </p>
         </div>
       </div>
     </section>
 
-
+    <!-- PHOTOGRAPHY -->
     <section id="photography">
       <h2>Photography</h2>
       <div class="photography-showcase">
         <div class="main-piece reveal">
-          <img src="Screenshot 2026-02-22 110939.png" alt="Main Work" class="zoomable">
+          <img src="Screenshot 2026-02-22 110939.png" alt="Featured Work" class="zoomable">
         </div>
+
         <div class="reveal">
           <span class="badge">Portfolio Highlight</span>
           <h3 style="font-size: 2.8rem; color: var(--steel-blue); margin-bottom: 15px;">Featured Work</h3>
-          <p style="color: var(--muted); margin-bottom: 35px; font-size: 1.1rem;">Capturing moments through a lens that explores the intersection of art and observation.</p>
-          
-          <a href="https://instagram.com/sriyankandalai" target="_blank" class="btn">View Collections</a>
+          <p style="color: var(--muted); margin-bottom: 35px; font-size: 1.1rem;">
+            Capturing moments through a lens that explores the intersection of art and observation.
+          </p>
+
+          <a href="https://instagram.com/sriyankandalai" target="_blank" rel="noopener" class="btn">View Collections</a>
           <div class="gallery-grid" id="galleryGrid"></div>
         </div>
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact" style="text-align: center;">
       <div class="glass-card reveal" style="max-width: 600px; margin: 0 auto; padding: 60px 40px;">
         <span class="badge">Contact Me</span>
         <h3 style="font-size: 1.8rem; margin-bottom: 30px;">Together, let's make more!</h3>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
           <a href="mailto:sriyankandalai@gmail.com" class="btn">Send Email</a>
-          <a href="https://instagram.com/sriyankandalai" target="_blank" class="btn">My Instagram Handle</a>
+          <a href="https://instagram.com/sriyankandalai" target="_blank" rel="noopener" class="btn">Instagram</a>
         </div>
       </div>
     </section>
 
+    <!-- FOOTER -->
     <footer style="text-align: center; color: var(--sky-blue); font-size: 0.75rem; padding: 60px 0; font-weight: 700; letter-spacing: 2px;">
-     <span id="footer-text">Last updated by Sriyan Kandalai</span>
+      <span id="footer-text">Last updated by Sriyan Kandalai</span>
     </footer>
   </div>
 
-  <!-- Lightbox Element -->
-  <div id="lightbox">
-    <div class="lightbox-close">&times;</div>
+  <!-- LIGHTBOX -->
+  <div id="lightbox" aria-hidden="true">
+    <div class="lightbox-close" aria-label="Close">&times;</div>
     <img src="" alt="Enlarged view">
   </div>
 
   <script>
-    // 1. Footer Update
+    // 1) Footer Update
     const currentYear = new Date().getFullYear();
     document.getElementById("footer-text").innerHTML = `&copy; ${currentYear} | Last updated by Sriyan Kandalai`;
 
-    // 2. Scroll Reveal Animations
-    const obs = new IntersectionObserver((entries) => { 
-      entries.forEach(entry => { 
-        if(entry.isIntersecting) entry.target.classList.add("in"); 
-      }); 
+    // 2) Scroll Reveal Animations
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("in");
+      });
     }, { threshold: 0.1 });
+
     document.querySelectorAll(".reveal").forEach(el => obs.observe(el));
 
-    // 3. Gallery Items Initialization
+    // 3) Gallery Items Initialization
     const galleryItems = [
-      "sunlightfarm.png", "swirl.png", "smile.png", 
+      "sunlightfarm.png", "swirl.png", "smile.png",
       "against_the_gradient.png", "among_the_stars.png", "puzzled.png"
     ];
-    
+
     const grid = document.getElementById("galleryGrid");
     grid.innerHTML = galleryItems.map(src => `
       <div class="thumb">
@@ -320,31 +485,44 @@
       </div>
     `).join("");
 
-    // 4. Enhanced Lightbox Interaction
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = lightbox.querySelector('img');
-    
-    // Open Logic
-    document.addEventListener('click', (e) => {
-      if (e.target.classList.contains('zoomable')) {
-        lightboxImg.src = e.target.src;
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Stop background scrolling
+    // 4) Lightbox Interaction (improved)
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = lightbox.querySelector("img");
+    const lightboxClose = lightbox.querySelector(".lightbox-close");
+
+    function openLightbox(src) {
+      lightboxImg.src = src;
+      lightbox.classList.add("active");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("active");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImg.src = "";
+      document.body.style.overflow = "auto";
+    }
+
+    // Open on zoomable click
+    document.addEventListener("click", (e) => {
+      const t = e.target;
+      if (t && t.classList && t.classList.contains("zoomable")) {
+        openLightbox(t.src);
       }
     });
 
-    // Close Logic (Click background/side or close button)
-    lightbox.addEventListener('click', (e) => {
-      // Logic: If user clicks the side (the lightbox div) or the close button
-      // We also close on image click for a seamless experience
-      lightbox.classList.remove('active');
-      document.body.style.overflow = 'auto'; // Restore scrolling
+    // Close on background click (NOT on image)
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox || e.target === lightboxClose) closeLightbox();
     });
 
+    // Close with Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && lightbox.classList.contains("active")) closeLightbox();
+    });
   </script>
 </body>
 </html>
-
-
 
 
